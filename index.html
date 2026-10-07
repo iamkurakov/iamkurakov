@@ -449,6 +449,9 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 .case-body>p{font-size:13px;color:var(--t2);line-height:1.68;flex:1}
 .case-res{margin-top:16px;padding-top:14px;border-top:1px solid var(--br);font-size:13px;color:var(--t2);line-height:1.6}
 .case-res strong{color:var(--t);font-weight:500}
+.case-divider{grid-column:1/-1;display:flex;align-items:center;gap:18px;margin-top:20px}
+.case-divider::before{content:"";flex:1;height:1px;background:var(--br);order:2}
+.case-divider span{order:1;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--a)}
 @media(max-width:900px){.case-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.case-grid{grid-template-columns:1fr}}
 
@@ -827,6 +830,8 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 <div class="case-res"><strong>Академии бренда</strong> и виртуальные сотрудники для компаний в разных отраслях</div>
 </div>
 </div>
+
+<div class="case-divider fi"><span>Кем я был до ИИ</span></div>
 
 <div class="case-card fi">
 <div class="case-img"><img src="img/case-mesto-pasty.webp" alt="Место пасты — ресторан свежей домашней пасты в Барнауле" loading="lazy" decoding="async"><div class="case-cat">Ресторан</div></div>
