@@ -496,6 +496,32 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 @media(max-width:760px){.stat-row{grid-template-columns:1fr;gap:14px;align-items:start}.stat-n{font-size:clamp(72px,22vw,140px)}}
 
 /* PROCESS */
+/* TOKENS */
+#tokens{background:var(--bg);padding-bottom:clamp(24px,3vw,40px)}
+.tok-g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px}
+.tok-c{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r);padding:clamp(26px,3vw,40px)}
+.tok-n{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--a);font-size:clamp(84px,12vw,170px);line-height:.82;letter-spacing:-.045em;display:flex;align-items:baseline;gap:.1em}
+.tok-n sup{font-size:.26em;font-weight:600;letter-spacing:0;line-height:1;transform:translateY(-1.2em);color:rgba(201,127,58,.6)}
+.tok-cap{font-family:'Jost',sans-serif;font-size:clamp(18px,1.8vw,24px);line-height:1.3;color:var(--t);margin:22px 0 28px}
+.tok-mon{display:grid;grid-template-columns:repeat(12,1fr);gap:7px;margin-bottom:12px}
+.tok-mon i{aspect-ratio:1;border-radius:50%;background:var(--a);opacity:.85}
+.tok-sub{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--br);font-size:13px;color:var(--t2);line-height:1.6}
+.tok-sub strong{color:var(--t);font-weight:500}
+.tok-c2{display:flex;flex-direction:column}
+.tok-c2 h3{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.4vw,32px);font-weight:600;line-height:1.2;margin-bottom:8px}
+.tok-c2>p{font-size:14px;color:var(--t2);line-height:1.7}
+.tok-chart{position:relative;margin-top:auto;padding-top:46px}
+.tok-bars{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;align-items:end;height:200px;border-bottom:1px solid var(--br2)}
+.tok-bars i{display:block;background:var(--bg3);border:1px solid var(--br);border-bottom:0;border-radius:6px 6px 0 0}
+.tok-bars i.top{background:linear-gradient(180deg,var(--al),var(--a));border-color:transparent;position:relative}
+.tok-bars i.top::before{content:"Я";position:absolute;left:50%;top:-38px;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;background:var(--t);color:var(--bg);font:600 14px/28px 'Jost',sans-serif;text-align:center}
+.tok-line{position:absolute;top:30px;bottom:30px;left:calc(90% - 4px);border-left:1.5px dashed var(--al)}
+.tok-line span{position:absolute;top:-4px;right:10px;white-space:nowrap;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--al)}
+.tok-ax{display:flex;justify-content:space-between;margin-top:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)}
+.tok-note{margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.75;color:var(--t2);max-width:900px;text-wrap:pretty}
+.tok-note strong{color:var(--t);font-weight:500}
+@media(max-width:900px){.tok-g{grid-template-columns:1fr}}
+@media(max-width:560px){.tok-bars{height:160px;gap:5px}.tok-mon{gap:5px}.tok-line{left:calc(90% - 2.5px)}}
 #process{background:var(--bg)}
 .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .proc-step{position:relative;padding-top:26px;border-top:2px solid var(--br2);transition:border-color .3s}
@@ -681,10 +707,11 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
         {"@type": "ListItem", "position": 4, "name": "Идеал Сервис", "description": "Система расчёта заказов на натяжные потолки: расчёт стоимости по замеру, коммерческое предложение клиенту и наряд монтажнику."},
         {"@type": "ListItem", "position": 5, "name": "Сказ на заказ", "description": "AI-проект персональных книг по фото героя: 200+ книг, генерация за 80–90 секунд, печать и доставка по России.", "url": "https://skaznazakaz.ru"},
         {"@type": "ListItem", "position": 6, "name": "Fevita", "description": "Онлайн-чекап женского здоровья: технологическая архитектура платформы и внедрение AI в клинический процесс. Роль — CTO.", "url": "https://fevita.ru"},
-        {"@type": "ListItem", "position": 7, "name": "Маркетинг двух интеллектов", "description": "Агентство по построению виртуальных академий бренда и созданию виртуальных сотрудников."},
-        {"@type": "ListItem", "position": 8, "name": "Место пасты", "description": "Ресторан свежей домашней пасты в Барнауле. Премия 2GIS «Открытие года» 2019, награды администрации города 2019 и 2020."},
-        {"@type": "ListItem", "position": 9, "name": "Ели-худели", "description": "Доставка полезного питания и франшизная сеть в 42 городах СНГ."},
-        {"@type": "ListItem", "position": 10, "name": "Дачные истории", "description": "Ресторан с уникальной концепцией: идентичность, атмосфера, команда и запуск операционной модели."}
+        {"@type": "ListItem", "position": 7, "name": "Авиасимулятор по одному промпту", "description": "Игра для сына, созданная одним промптом: 3D-симулятор лёгкого самолёта над городом, работает в браузере.", "url": "https://iamkurakov.github.io/game_flight/"},
+        {"@type": "ListItem", "position": 8, "name": "Маркетинг двух интеллектов", "description": "Агентство по построению виртуальных академий бренда и созданию виртуальных сотрудников."},
+        {"@type": "ListItem", "position": 9, "name": "Место пасты", "description": "Ресторан свежей домашней пасты в Барнауле. Премия 2GIS «Открытие года» 2019, награды администрации города 2019 и 2020."},
+        {"@type": "ListItem", "position": 10, "name": "Ели-худели", "description": "Доставка полезного питания и франшизная сеть в 42 городах СНГ."},
+        {"@type": "ListItem", "position": 11, "name": "Дачные истории", "description": "Ресторан с уникальной концепцией: идентичность, атмосфера, команда и запуск операционной модели."}
       ]
     },
     {
@@ -833,7 +860,17 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 </a>
 
-<div class="case-card fi">
+<a href="https://iamkurakov.github.io/game_flight/" class="case-card fi" target="_blank" rel="noopener">
+<div class="case-img"><img src="img/case-aviasim.webp" alt="Авиасимулятор по одному промпту — 3D-игра про полёт над городом" loading="lazy" decoding="async"></div>
+<div class="case-body">
+<h3>Авиасимулятор по одному промпту</h3>
+<div class="case-role">AI-разработка</div>
+<p>Игра для сына, созданная одним промптом: 3D-симулятор лёгкого самолёта над городом. Взлёт, свободный полёт, посадка, миссия с кольцами, разные камеры и звук. Работает прямо в браузере, без установки.</p>
+<div class="case-res"><strong>Рабочая игра из одного промпта</strong> — можно сыграть по ссылке</div>
+</div>
+</a>
+
+<div class="case-card fi d1">
 <div class="case-img"><img src="img/case-mdi.webp" alt="Маркетинг двух интеллектов — виртуальные академии бренда" loading="lazy" decoding="async"></div>
 <div class="case-body">
 <h3>Маркетинг двух интеллектов</h3>
@@ -885,6 +922,33 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 <a href="https://iamkurakov.github.io/pribylyator/" class="pb-btn fi" target="_blank" rel="noopener" style="background:linear-gradient(180deg,#F0B041,#9B4B17)">Прибылятор<svg viewBox="0 0 24 24"><path d="M5 12h12.2l-4.6-4.6L14 6l6 6-6 6-1.4-1.4 4.6-4.6H5z"></path></svg></a>
 <p class="pb-sub fi d1">каталог калькуляторов для 15 направлений бизнеса</p>
 </div>
+</div>
+</section>
+
+<section id="tokens" data-screen-label="Токены">
+<div class="wrap">
+<div class="sh fi">
+<span class="label">Интенсивность работы с ИИ</span>
+<h2>Живу в ИИ<br>каждый день</h2>
+</div>
+<div class="tok-g">
+<div class="tok-c fi">
+<div class="tok-n">5,4<sup>млрд</sup></div>
+<div class="tok-cap">токенов ИИ — расчётный расход за 24 месяца</div>
+<div class="tok-mon" role="img" aria-label="24 месяца"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="tok-sub"><span><strong>24 месяца</strong> работы с ИИ</span><span>в среднем <strong>≈225 млн токенов</strong> в месяц</span></div>
+</div>
+<div class="tok-c tok-c2 fi d1">
+<h3>Выше порога топ-10%</h3>
+<p>По интенсивности использования Claude Code — в одном из исследований разработчиков.</p>
+<div class="tok-chart" role="img" aria-label="Схема: разработчики по интенсивности использования, я выше порога топ-10%">
+<div class="tok-line"><span>Порог топ-10%</span></div>
+<div class="tok-bars"><i style="height:14%"></i><i style="height:20%"></i><i style="height:27%"></i><i style="height:34%"></i><i style="height:42%"></i><i style="height:51%"></i><i style="height:61%"></i><i style="height:72%"></i><i style="height:84%"></i><i class="top" style="height:100%"></i></div>
+<div class="tok-ax"><span>Меньше</span><span>Интенсивность</span><span>Больше</span></div>
+</div>
+</div>
+</div>
+<p class="tok-note fi">За 24 месяца мой расчётный расход составил <strong>5,4 млрд токенов ИИ</strong>. По интенсивности использования Claude Code я превышаю порог <strong>топ-10%</strong> в одном из исследований разработчиков.</p>
 </div>
 </section>
 
