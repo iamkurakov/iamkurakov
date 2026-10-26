@@ -502,13 +502,20 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 .tok-c{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r);padding:clamp(26px,3vw,40px)}
 .tok-n{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--a);font-size:clamp(84px,12vw,170px);line-height:.82;letter-spacing:-.045em;display:flex;align-items:baseline;gap:.1em}
 .tok-n sup{font-size:.26em;font-weight:600;letter-spacing:0;line-height:1;transform:translateY(-1.2em);color:rgba(201,127,58,.6)}
-.tok-cap{font-family:'Jost',sans-serif;font-size:clamp(18px,1.8vw,24px);line-height:1.3;color:var(--t);margin:22px 0 28px}
+.tok-cap{font-family:'Jost',sans-serif;font-size:clamp(18px,1.8vw,24px);line-height:1.3;color:var(--t);margin:22px 0 18px}
 .tok-sub{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--br);font-size:13px;color:var(--t2);line-height:1.6}
 .tok-sub strong{color:var(--t);font-weight:500}
 .tok-q{display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,2vw,28px);position:relative;padding-left:clamp(32px,4vw,56px)}
 .tok-q::before{content:"";position:absolute;left:clamp(18px,2.2vw,30px);top:clamp(26px,3vw,40px);bottom:clamp(26px,3vw,40px);width:2px;background:linear-gradient(180deg,var(--al),rgba(201,127,58,0))}
 .tok-q p{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.7vw,36px);line-height:1.3;font-weight:500;color:var(--t2);text-wrap:pretty}
 .tok-q strong{color:var(--al);font-weight:700}
+.tok-live{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 24px;padding:14px 18px;background:var(--bg1);border:1px solid var(--br2);border-radius:12px}
+.tok-dot{width:9px;height:9px;border-radius:50%;background:var(--a);flex:none;animation:tokp 1.2s ease-out infinite}
+.tok-cnt{font-family:'Jost',sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,34px);letter-spacing:.01em;color:var(--t);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tok-rate{margin-left:auto;font-size:13px;color:var(--t2);white-space:nowrap}
+.tok-rate strong{color:var(--al);font-weight:500}
+@keyframes tokp{0%{box-shadow:0 0 0 0 rgba(201,127,58,.55)}100%{box-shadow:0 0 0 10px rgba(201,127,58,0)}}
+@media(prefers-reduced-motion:reduce){.tok-dot{animation:none}}
 @media(max-width:900px){.tok-g{grid-template-columns:1fr}}
 #process{background:var(--bg)}
 .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -787,6 +794,7 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 <div class="tok-c fi">
 <div class="tok-n">5,4<sup>млрд</sup></div>
 <div class="tok-cap">токенов ИИ — расчётный расход за 24 месяца</div>
+<div class="tok-live" aria-hidden="true"><span class="tok-dot"></span><span class="tok-cnt" id="tok-cnt">5 400 000 000</span><span class="tok-rate">+<strong>≈85,6</strong> токена в секунду</span></div>
 <div class="tok-sub"><span><strong>24 месяца</strong> работы с ИИ</span><span>в среднем <strong>≈225 млн токенов</strong> в месяц</span></div>
 </div>
 <div class="tok-c tok-q fi d1">
@@ -1131,6 +1139,22 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!isOpen){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
   });
 });
+// Живой счётчик токенов: 5,4 млрд на 26.10.2026, дальше ≈85,6 токена/сек (5,4 млрд / 24 мес)
+(function(){
+  const el=document.getElementById('tok-cnt');if(!el)return;
+  const BASE=5.4e9,T0=Date.UTC(2026,9,26),RATE=5.4e9/(24*30.4375*86400);
+  const fmt=n=>String(Math.floor(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0');
+  const calc=()=>BASE+Math.max(0,(Date.now()-T0)/1000)*RATE;
+  const draw=()=>{el.textContent=fmt(calc())};
+  draw();
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  let timer=null;
+  const start=()=>{if(!timer){draw();timer=setInterval(draw,80)}};
+  const stop=()=>{clearInterval(timer);timer=null};
+  let seen=false;
+  new IntersectionObserver(es=>es.forEach(e=>{seen=e.isIntersecting;seen&&!document.hidden?start():stop()})).observe(el);
+  document.addEventListener('visibilitychange',()=>{document.hidden||!seen?stop():start()});
+})();
 </script>
 
 
