@@ -517,6 +517,12 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 .tok-live{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 24px;padding:14px 18px;background:var(--bg1);border:1px solid var(--br2);border-radius:12px}
 .tok-dot{width:9px;height:9px;border-radius:50%;background:var(--a);flex:none;animation:tokp 1.2s ease-out infinite}
 .tok-cnt{font-family:'Jost',sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,34px);letter-spacing:.01em;color:var(--t);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tok-cnt{display:inline-flex;align-items:center}
+.tok-d{display:inline-block;width:.62em;height:1.2em;overflow:hidden;text-align:center}
+.tok-st{display:block;transition:transform .9s cubic-bezier(.45,0,.2,1)}
+.tok-st i{display:block;height:1.2em;line-height:1.2em;font-style:normal}
+.tok-gap{display:inline-block;width:.3em}
+.tok-ell{margin-left:.3em;color:var(--t2);letter-spacing:.05em}
 .tok-rate{margin-left:auto;font-size:13px;color:var(--t2);white-space:nowrap}
 .tok-rate strong{color:var(--al);font-weight:500}
 @keyframes tokp{0%{box-shadow:0 0 0 0 rgba(201,127,58,.55)}100%{box-shadow:0 0 0 10px rgba(201,127,58,0)}}
@@ -1141,22 +1147,54 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!isOpen){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
   });
 });
-// Живой счётчик токенов: 5,4 млрд на 26.10.2026, дальше ≈85,6 токена/сек (5,4 млрд / 24 мес)
+// Живой счётчик токенов: 5,4 млрд на 26.10.2026, дальше ≈85,6 токена/сек (5,4 млрд / 24 мес).
+// Единицы, десятки и сотни скрыты многоточием, тысячи и выше перелистываются как одометр.
 (function(){
   const el=document.getElementById('tok-cnt');if(!el)return;
   const BASE=5.4e9,T0=Date.UTC(2026,9,26),RATE=5.4e9/(24*30.4375*86400);
-  const fmt=n=>String(Math.floor(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0');
-  const calc=()=>BASE+Math.max(0,(Date.now()-T0)/1000)*RATE;
-  const draw=()=>{el.textContent=fmt(calc())};
+  const calc=()=>Math.floor(BASE+Math.max(0,(Date.now()-T0)/1000)*RATE);
+  const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let cols=[],len=0;
+  const pos=n=>'translateY(-'+(n*1.2)+'em)';
+  const build=str=>{
+    el.textContent='';cols=[];len=str.length;
+    [...str].forEach((ch,i)=>{
+      if(i&&(str.length-i)%3===0){const g=document.createElement('span');g.className='tok-gap';el.appendChild(g)}
+      const d=document.createElement('span');d.className='tok-d';
+      const st=document.createElement('span');st.className='tok-st';
+      for(let k=0;k<=10;k++){const n=document.createElement('i');n.textContent=k%10;st.appendChild(n)}
+      d.appendChild(st);el.appendChild(d);cols.push({st,v:+ch});
+      st.style.transition='none';st.style.transform=pos(ch);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{st.style.transition=''}));
+    });
+    const e=document.createElement('span');e.className='tok-ell';e.textContent='\u2026';el.appendChild(e);
+  };
+  const set=(c,v)=>{
+    if(v===c.v)return;
+    const wrap=v<c.v;
+    c.st.style.transition=still?'none':'';
+    c.st.style.transform=pos(wrap?10:v);
+    if(wrap){
+      const fix=()=>{c.st.removeEventListener('transitionend',fix);c.st.style.transition='none';c.st.style.transform=pos(v)};
+      still?fix():c.st.addEventListener('transitionend',fix);
+    }
+    c.v=v;
+  };
+  const draw=()=>{
+    const str=String(Math.floor(calc()/1000));
+    if(str.length!==len)build(str);
+    [...str].forEach((ch,i)=>set(cols[i],+ch));
+  };
   draw();
-  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  if(still)return;
   let timer=null;
-  const start=()=>{if(!timer){draw();timer=setInterval(draw,80)}};
+  const start=()=>{if(!timer){draw();timer=setInterval(draw,500)}};
   const stop=()=>{clearInterval(timer);timer=null};
   let seen=false;
   new IntersectionObserver(es=>es.forEach(e=>{seen=e.isIntersecting;seen&&!document.hidden?start():stop()})).observe(el);
   document.addEventListener('visibilitychange',()=>{document.hidden||!seen?stop():start()});
 })();
+
 </script>
 
 
