@@ -667,14 +667,21 @@ a.foot-cell:hover{border-color:var(--a);transform:translateY(-4px);background:va
 }
 @media(prefers-reduced-motion:reduce){.course-envelope-flap,.course-letter,.course-arrow,.course-telegram{transition:none!important;animation:none!important}.course-letter{will-change:auto}}
 
-/* Third course envelope: two balanced experience blocks */
-.course-stats--duo{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:620px;margin:18px auto 0}
-.course-stat--card{padding:18px 16px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,240,220,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
-.course-stat--card strong{display:block}
-.course-stat--card span{max-width:none}
+/* Third course envelope: four experience metrics in a 2x2 grid */
+.course-stats--quad{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:650px;margin:16px auto 0;align-items:stretch}
+.course-stat--card{display:flex;flex-direction:column;justify-content:center;gap:9px;min-height:127px;min-width:0;padding:15px 16px;border-radius:15px;background:rgba(255,255,255,.09);border:1px solid rgba(255,240,220,.19);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.course-stat--card strong{display:block;font-size:clamp(28px,3.5vw,42px);white-space:normal;overflow-wrap:anywhere}
+.course-stat--card span{max-width:none;overflow-wrap:anywhere;font-size:clamp(12px,1.18vw,15px);line-height:1.34}
 @media(max-width:760px){
- .course-stats--duo{grid-template-columns:1fr;gap:12px;max-width:100%}
- .course-stat--card{padding:14px}
+ .course-stats--quad{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;max-width:100%;margin-top:12px}
+ .course-stat--card{min-height:142px;padding:12px 8px;border-radius:12px;gap:8px}
+ .course-stat--card strong{font-size:clamp(20px,5.4vw,28px);line-height:1.09}
+ .course-stat--card span{font-size:clamp(11px,2.9vw,13px);line-height:1.25}
+}
+@media(max-width:380px){
+ .course-stat--card{padding:10px 7px;min-height:139px;gap:6px}
+ .course-stat--card strong{font-size:20px}
+ .course-stat--card span{font-size:11px}
 }
 
 /* MOBILE MENU */
@@ -914,9 +921,11 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 <div class="course-slide" id="course-slide-3" aria-hidden="true" hidden>
 <p class="course-eyebrow">Евгений Кураков · Опыт</p>
-<div class="course-stats course-stats--duo">
+<div class="course-stats course-stats--quad">
 <div class="course-stat course-stat--card"><strong>20 лет</strong><span>Маркетинг и предпринимательство</span></div>
-<div class="course-stat course-stat--card"><strong>700+</strong><span>проектов для 150 брендов</span></div>
+<div class="course-stat course-stat--card"><strong>700+</strong><span>Проектов для 150 брендов</span></div>
+<div class="course-stat course-stat--card"><strong>5 лет</strong><span>Преподавательской деятельности в области маркетинга и рекламы</span></div>
+<div class="course-stat course-stat--card"><strong>2,5+ года</strong><span>Работы с искусственным интеллектом</span></div>
 </div>
 </div>
 </div>
