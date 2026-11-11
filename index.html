@@ -945,23 +945,6 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 </section>
 
-<section id="tokens" data-screen-label="Токены">
-<div class="wrap">
-<div class="sh fi">
-<h2>ИИследую AI<br>каждый день</h2>
-</div>
-<div class="tok-g">
-<div class="tok-c fi">
-<div class="tok-n">5,4<sup>млрд</sup></div>
-<div class="tok-cap">токенов ИИ — расчётный расход за 24 месяца</div>
-<div class="tok-live" aria-hidden="true"><span class="tok-dot"></span><span class="tok-cnt" id="tok-cnt">5 400 000 000</span><span class="tok-rate">+<strong>≈85,6</strong> токена в секунду</span></div>
-<div class="tok-sub"><span><strong>24 месяца</strong> работы с ИИ</span><span>в среднем <strong>≈225 млн токенов</strong> в месяц</span></div>
-</div>
-<div class="tok-c tok-q fi d1">
-<p>По интенсивности использования Claude Code я превышаю порог <strong>топ-10%</strong> в одном из исследований разработчиков.</p>
-</div>
-</div>
-</section>
 
 <section id="cases" data-screen-label="Кейсы">
 <div class="wrap">
@@ -1104,37 +1087,6 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 </section>
 
-<section id="owner" data-screen-label="Разница есть">
-<div class="wrap">
-<div class="owner-g">
-<div class="fi">
-<h2>Смотрю на бизнес<br>глазами собственника</h2>
-<p class="lead">Я сам открывал рестораны, службы доставки, собирал команды с нуля, проектировал и жил в рутине.</p>
-<div class="owner-pts">
-<div class="owner-pt">Начинаю с процессов и денег, а не с выбора инструмента</div>
-<div class="owner-pt">Считаю окупаемость до внедрения, а не после</div>
-<div class="owner-pt">Понимаю, как сотрудники сопротивляются изменениям — и как это проходить</div>
-<div class="owner-pt">Говорю на языке владельца: выручка, маржа, фонд оплаты труда, скорость</div>
-</div>
-</div>
-<div class="compare fi d2">
-<div class="compare-row">
-<span class="label">Обычный подрядчик</span>
-<p>Приходит с технологией и ищет, куда её применить. Внедряет то, что умеет. Отчитывается количеством настроенных сценариев.</p>
-</div>
-<div class="compare-row mine">
-<span class="label">Как работаю я</span>
-<p>Прихожу с вопросом -- где вы, вероятно, теряете деньги. Считаю стоимость рутины в часах и рублях. Инструмент выбираю последним — под конкретную задачу, а не наоборот.</p>
-</div>
-<div class="compare-row">
-<span class="label">Результат разницы</span>
-<p>Вы не получаете красивую систему, которой никто не пользуется. Вы получаете процесс, который стал дешевле, быстрее или перестал зависеть от одного человека.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
 <section id="stats" data-screen-label="Маркетолог своих бизнесов">
 <div class="wrap">
 <div class="stats-head fi">
@@ -1161,6 +1113,39 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 <div class="stat-txt">
 <h3>лет в бизнесе</h3>
 <p>Собственные проекты с 2012 года, до этого — дизайн и реклама. Прошёл все роли: исполнитель, руководитель, собственник.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<section id="owner" data-screen-label="Разница есть">
+<div class="wrap">
+<div class="owner-g">
+<div class="fi">
+<h2>Смотрю на бизнес<br>глазами собственника</h2>
+<p class="lead">Я сам открывал рестораны, службы доставки, собирал команды с нуля, проектировал и жил в рутине.</p>
+<div class="owner-pts">
+<div class="owner-pt">Начинаю с процессов и денег, а не с выбора инструмента</div>
+<div class="owner-pt">Считаю окупаемость до внедрения, а не после</div>
+<div class="owner-pt">Понимаю, как сотрудники сопротивляются изменениям — и как это проходить</div>
+<div class="owner-pt">Говорю на языке владельца: выручка, маржа, фонд оплаты труда, скорость</div>
+</div>
+</div>
+<div class="compare fi d2">
+<div class="compare-row">
+<span class="label">Обычный подрядчик</span>
+<p>Приходит с технологией и ищет, куда её применить. Внедряет то, что умеет. Отчитывается количеством настроенных сценариев.</p>
+</div>
+<div class="compare-row mine">
+<span class="label">Как работаю я</span>
+<p>Прихожу с вопросом -- где вы, вероятно, теряете деньги. Считаю стоимость рутины в часах и рублях. Инструмент выбираю последним — под конкретную задачу, а не наоборот.</p>
+</div>
+<div class="compare-row">
+<span class="label">Результат разницы</span>
+<p>Вы не получаете красивую систему, которой никто не пользуется. Вы получаете процесс, который стал дешевле, быстрее или перестал зависеть от одного человека.</p>
 </div>
 </div>
 </div>
@@ -1372,53 +1357,7 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
  else{const obs=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){shell.classList.add('is-open');obs.disconnect();break}}},{threshold:.2});obs.observe(root)}
 })();
 
-// Живой счётчик токенов: 5,4 млрд на 26.10.2026, дальше ≈85,6 токена/сек (5,4 млрд / 24 мес).
-// Единицы, десятки и сотни скрыты многоточием, тысячи и выше перелистываются как одометр.
-(function(){
-  const el=document.getElementById('tok-cnt');if(!el)return;
-  const BASE=5.4e9,T0=Date.UTC(2026,9,26),RATE=5.4e9/(24*30.4375*86400);
-  const calc=()=>Math.floor(BASE+Math.max(0,(Date.now()-T0)/1000)*RATE);
-  const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  let cols=[],len=0;
-  const pos=n=>'translateY(-'+(n*1.2)+'em)';
-  const build=str=>{
-    el.textContent='';cols=[];len=str.length;
-    [...str].forEach((ch,i)=>{
-      if(i&&(str.length-i)%3===0){const g=document.createElement('span');g.className='tok-gap';el.appendChild(g)}
-      const d=document.createElement('span');d.className='tok-d';
-      const st=document.createElement('span');st.className='tok-st';
-      for(let k=0;k<=10;k++){const n=document.createElement('i');n.textContent=k%10;st.appendChild(n)}
-      d.appendChild(st);el.appendChild(d);cols.push({st,v:+ch});
-      st.style.transition='none';st.style.transform=pos(ch);
-      requestAnimationFrame(()=>requestAnimationFrame(()=>{st.style.transition=''}));
-    });
-    const e=document.createElement('span');e.className='tok-ell';e.textContent='\u2026';el.appendChild(e);
-  };
-  const set=(c,v)=>{
-    if(v===c.v)return;
-    const wrap=v<c.v;
-    c.st.style.transition=still?'none':'';
-    c.st.style.transform=pos(wrap?10:v);
-    if(wrap){
-      const fix=()=>{c.st.removeEventListener('transitionend',fix);c.st.style.transition='none';c.st.style.transform=pos(v)};
-      still?fix():c.st.addEventListener('transitionend',fix);
-    }
-    c.v=v;
-  };
-  const draw=()=>{
-    const str=String(Math.floor(calc()/1000));
-    if(str.length!==len)build(str);
-    [...str].forEach((ch,i)=>set(cols[i],+ch));
-  };
-  draw();
-  if(still)return;
-  let timer=null;
-  const start=()=>{if(!timer){draw();timer=setInterval(draw,500)}};
-  const stop=()=>{clearInterval(timer);timer=null};
-  let seen=false;
-  new IntersectionObserver(es=>es.forEach(e=>{seen=e.isIntersecting;seen&&!document.hidden?start():stop()})).observe(el);
-  document.addEventListener('visibilitychange',()=>{document.hidden||!seen?stop():start()});
-})();
+;
 
 </script>
 
