@@ -668,26 +668,23 @@ a.foot-cell:hover{border-color:var(--a);transform:translateY(-4px);background:va
 @media(prefers-reduced-motion:reduce){.course-envelope-flap,.course-letter,.course-arrow,.course-telegram{transition:none!important;animation:none!important}.course-letter{will-change:auto}}
 
 
-/* 11.11 promotion: detachable taped foil sticker on the fixed envelope front.
+/* Special-price promotion: detachable taped foil sticker on the fixed envelope front.
    Keep the original letter/flap transitions and arrow layers intact. */
 .course-blackfriday{position:absolute;z-index:7;left:50%;bottom:40px;width:clamp(210px,43%,390px);height:clamp(103px,15vw,158px);transform:translateX(-50%) rotate(-1deg);display:none;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;isolation:isolate;background:linear-gradient(155deg,rgba(52,42,39,.95),rgba(14,13,15,.97) 55%,rgba(53,42,35,.93));border:1px solid rgba(251,206,143,.24);box-shadow:0 13px 28px rgba(0,0,0,.7),inset 0 0 34px rgba(255,211,128,.08)}
 .course-blackfriday.is-active{display:flex}
-.course-blackfriday-digits{position:relative;z-index:1;display:block;white-space:nowrap;font-family:'Jost',sans-serif;font-size:clamp(63px,8.3vw,112px);font-weight:800;letter-spacing:-.085em;line-height:.91;padding-right:.08em;background:linear-gradient(180deg,#fff8ae 0%,#ffd21b 14%,#f5a500 34%,#fff89c 43%,#e88b00 54%,#ffcf06 72%,#965008 91%,#ffec78 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1.5px #ffcb2f;filter:drop-shadow(1px 2px 0 #9e5500) drop-shadow(3px 5px 0 #562800) drop-shadow(0 0 8px rgba(255,174,0,.4))}
-.course-blackfriday-caption{position:relative;z-index:1;margin-top:1px;font-family:'Jost',sans-serif;font-size:clamp(16px,2vw,29px);line-height:1.1;font-weight:750;letter-spacing:-.025em;white-space:nowrap;color:#fff7e2;text-shadow:0 2px 5px #000,0 0 7px rgba(255,233,173,.24)}
+.course-blackfriday-digits{position:relative;z-index:1;display:block;white-space:normal;text-align:center;font-family:'Jost',sans-serif;font-size:clamp(30px,3.3vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.04;background:linear-gradient(180deg,#fff8ae 0%,#ffd21b 14%,#f5a500 34%,#fff89c 43%,#e88b00 54%,#ffcf06 72%,#965008 91%,#ffec78 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1px #ffcb2f;filter:drop-shadow(1px 2px 0 #9e5500) drop-shadow(2px 4px 0 #562800) drop-shadow(0 0 8px rgba(255,174,0,.4))}
 .course-tape{position:absolute;z-index:2;width:clamp(45px,8vw,75px);height:clamp(21px,3vw,34px);background:repeating-linear-gradient(120deg,rgba(255,255,255,.13) 0 2px,transparent 2px 8px),linear-gradient(160deg,rgba(226,211,194,.53),rgba(181,167,152,.32) 46%,rgba(229,222,209,.49));border:1px solid rgba(255,245,227,.22);box-shadow:0 2px 7px rgba(0,0,0,.38);clip-path:polygon(0 4%,98% 0,94% 96%,3% 100%)}
 .course-tape--top{top:-12px;left:-27px;transform:rotate(-34deg)}
 .course-tape--bottom{right:-24px;bottom:-10px;transform:rotate(-36deg)}
 @media(max-width:760px){
  .course-blackfriday{bottom:48px;width:52%;min-width:190px;height:105px}
- .course-blackfriday-digits{font-size:clamp(58px,13.5vw,81px)}
- .course-blackfriday-caption{font-size:clamp(15px,4.1vw,21px)}
+ .course-blackfriday-digits{font-size:clamp(23px,5.5vw,30px)}
  .course-tape{width:48px;height:24px}
  .course-tape--top{left:-18px}.course-tape--bottom{right:-14px}
 }
 @media(max-width:380px){
  .course-blackfriday{min-width:170px;height:97px}
- .course-blackfriday-digits{font-size:56px}
- .course-blackfriday-caption{font-size:15px}
+ .course-blackfriday-digits{font-size:23px}
 }
 
 /* Third course envelope: four experience metrics in a 2x2 grid */
@@ -954,11 +951,10 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 </div>
 <div class="course-envelope-front" aria-hidden="true"></div>
-<div class="course-blackfriday" id="course-blackfriday" aria-label="Акция 11.11 — Чёрная пятница">
+<div class="course-blackfriday" id="course-blackfriday" aria-label="Специальная цена на обучение">
  <span class="course-tape course-tape--top" aria-hidden="true"></span>
  <span class="course-tape course-tape--bottom" aria-hidden="true"></span>
- <span class="course-blackfriday-digits">11.11</span>
- <span class="course-blackfriday-caption">Чёрная пятница</span>
+ <span class="course-blackfriday-digits">Специальная<br>цена</span>
 </div>
 <div class="course-fold left" aria-hidden="true"></div>
 <div class="course-fold right" aria-hidden="true"></div>
