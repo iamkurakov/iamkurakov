@@ -704,6 +704,29 @@ a.foot-cell:hover{border-color:var(--a);transform:translateY(-4px);background:va
  .course-stat--card span{font-size:11px}
 }
 
+
+/* Referral program: isolated styling using existing typography and colors. */
+#referral-program{background:var(--bg2);position:relative;overflow:hidden;border-top:1px solid var(--br);border-bottom:1px solid var(--br)}
+#referral-program::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(201,127,58,.12),transparent 62%);pointer-events:none}
+.referral-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);align-items:center;gap:clamp(30px,6vw,96px);position:relative}
+.referral-eyebrow{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--a);margin-bottom:17px}
+#referral-program h2{font-size:clamp(38px,5.6vw,72px);line-height:1.03;letter-spacing:-.035em;max-width:680px}
+#referral-program h2 em{font-weight:400;color:var(--a)}
+.referral-description{font-size:clamp(16px,1.5vw,19px);line-height:1.64;color:var(--t2);max-width:580px;margin:22px 0 28px}
+.referral-join{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:14px 27px;border-radius:100px;color:var(--bg);background:var(--a);font-family:'Jost',sans-serif;font-size:15px;font-weight:500;transition:background .2s,transform .2s}
+.referral-join:hover{background:var(--al);color:var(--bg);transform:translateY(-2px)}
+.referral-footnote{margin-top:18px;color:var(--t3);font-size:12px;line-height:1.6}
+.referral-rewards{display:grid;gap:10px}
+.referral-reward{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:21px 23px;border:1px solid var(--br2);border-radius:16px;background:rgba(255,255,255,.025)}
+.referral-reward span{color:var(--t2);font-size:14px;line-height:1.45}
+.referral-reward strong{font-family:'Jost',sans-serif;color:var(--t);font-size:clamp(23px,2.7vw,34px);letter-spacing:-.04em;font-weight:500;white-space:nowrap}
+.referral-reward:last-child{border-color:rgba(201,127,58,.48);background:rgba(201,127,58,.07)}
+.referral-notice{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;width:min(100%,940px);margin:16px auto 0;padding:13px 18px;border:1px solid rgba(255,205,144,.27);border-radius:12px;background:rgba(255,227,189,.07);color:#fff0da;font-size:13px;line-height:1.5;text-align:center}
+.referral-notice[hidden]{display:none}
+.referral-notice strong{color:#ffe49f;font-weight:600}
+@media(max-width:760px){.referral-layout{grid-template-columns:1fr;gap:27px}.referral-reward{padding:16px;gap:9px}.referral-reward strong{font-size:clamp(23px,6.6vw,30px)}.referral-join{width:100%}.referral-notice{font-size:12px;margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.referral-join{transition:none}}
+
 /* MOBILE MENU */
 #mob{display:none;position:fixed;inset:0;background:rgba(9,8,11,.97);backdrop-filter:blur(24px);z-index:210;align-items:center;justify-content:center;flex-direction:column;gap:28px}
 #mob.open{display:flex}
@@ -966,10 +989,31 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 <div class="course-footer">
 <a class="course-telegram" href="https://t.me/kurakoveb" target="_blank" rel="noopener noreferrer">Обсудить обучение в Telegram <span aria-hidden="true">↗</span></a>
 </div>
+
+<div class="referral-notice" id="referral-notice" hidden role="status">
+Вы перешли по партнёрской ссылке. Код рекомендации: <strong id="referral-code"></strong>. При обращении в Telegram код появится в черновике сообщения — его нужно отправить.
+</div>
 </div>
 </div>
 </section>
 
+
+<section id="referral-program" data-screen-label="Партнёрская программа" aria-label="Реферальная программа курса">
+<div class="wrap"><div class="referral-layout">
+<div class="fi">
+<span class="referral-eyebrow">Партнёрская программа</span>
+<h2>Рекомендуйте мой курс. <em>Получайте 25%.</em></h2>
+<p class="referral-description">Знакомьте меня с компаниями или людьми, которым нужно практическое обучение ИИ. За оплаченный курс вы получите четверть его стоимости. Без личного кабинета, регистрации и участия в продаже.</p>
+<a id="partner-join" class="referral-join" href="https://t.me/kurakoveb" target="_blank" rel="noopener noreferrer">Получить партнёрскую ссылку <span aria-hidden="true">↗</span></a>
+<p class="referral-footnote">Я выдам персональную ссылку и закреплю за вами рекомендации на 60 дней. Можно также просто познакомить меня с клиентом в Telegram. Вознаграждение начисляется после подтверждённой оплаты курса. Условия выплаты согласуем до начала сотрудничества.</p>
+</div>
+<div class="referral-rewards fi d1" aria-label="Размеры партнёрского вознаграждения">
+<div class="referral-reward"><span>Корпоративный курс<br>по акции 120 000 ₽</span><strong>30 000 ₽</strong></div>
+<div class="referral-reward"><span>Корпоративный курс<br>по цене 160 000 ₽</span><strong>40 000 ₽</strong></div>
+<div class="referral-reward"><span>Индивидуальный курс<br>40 000 ₽</span><strong>10 000 ₽</strong></div>
+</div>
+</div></div>
+</section>
 
 <section id="cases" data-screen-label="Кейсы">
 <div class="wrap">
@@ -1317,6 +1361,43 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!isOpen){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
   });
 });
+
+
+/* Referral tracking uses first-touch local storage, no account or server.
+   Attribution is confirmed only on actual Telegram contact and payment. */
+(function(){
+ const join=document.getElementById('partner-join');
+ if(join)join.href='https://t.me/kurakoveb?text='+encodeURIComponent('Здравствуйте! Хочу стать партнёром по реферальной программе курса ИИ. Пришлите мне персональную ссылку.');
+ const key='kurakov_course_ref_v1';
+ const valid=v=>typeof v==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9_-]{2,39}$/.test(v);
+ const life=60*24*60*60*1000,now=Date.now();
+ let ref=null;
+ try{
+  const saved=JSON.parse(localStorage.getItem(key)||'null');
+  if(saved&&valid(saved.code)&&typeof saved.at==='number'&&saved.at<=now&&now-saved.at<life)ref=saved;
+  else localStorage.removeItem(key);
+ }catch(_){}
+ const incoming=new URLSearchParams(location.search).get('ref');
+ if(!ref&&valid(incoming)){
+  ref={code:incoming.toLowerCase(),at:now};
+  try{localStorage.setItem(key,JSON.stringify(ref))}catch(_){}
+ }
+ if(!ref)return;
+ const code=ref.code;
+ const note=document.getElementById('referral-notice');
+ const label=document.getElementById('referral-code');
+ if(note&&label){label.textContent=code;note.hidden=false}
+ const message='Здравствуйте! Интересует ваш практический курс по ИИ. Я пришёл по рекомендации партнёра. Код рекомендации: '+code+'.';
+ const url='https://t.me/kurakoveb?text='+encodeURIComponent(message);
+ /* Preserve code for contact through any of the site's existing Telegram CTAs.
+    Do not change the separate button for partners requesting a referral link. */
+ document.querySelectorAll('a[href="https://t.me/kurakoveb"]').forEach(link=>{
+  link.href=url;
+  link.addEventListener('click',()=>{
+   if(typeof ym==='function')try{ym(113907085,'reachGoal','course_referral_contact',{partner_code:code})}catch(_){}
+  });
+ });
+})();
 
 /* Limited promotion: through November 18, 2026 in Barnaul (UTC+7).
    At midnight Nov 19 the sale, sticker and timer disappear automatically. */
