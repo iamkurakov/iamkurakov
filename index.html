@@ -463,6 +463,23 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 @media(max-width:900px){.case-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.case-grid{grid-template-columns:1fr}}
 
+/* DELOVOICE — featured launch case */
+.case-spotlight{grid-column:1/-1;display:block;overflow:hidden;border:2px solid rgba(201,127,58,.72);border-radius:16px;background:var(--bg2);color:inherit;text-decoration:none;box-shadow:0 0 0 1px rgba(201,127,58,.12),0 20px 65px rgba(0,0,0,.13);transition:border-color .3s,transform .3s,box-shadow .3s}
+.case-spotlight:hover{border-color:var(--a);transform:translateY(-4px);box-shadow:0 0 0 1px rgba(201,127,58,.2),0 26px 70px rgba(0,0,0,.25)}
+.case-spotlight:focus-visible{outline:3px solid var(--a);outline-offset:5px}
+.case-spotlight-media{width:100%;aspect-ratio:16/9;overflow:hidden;background:#e9d5b7}
+.case-spotlight-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.case-spotlight:hover .case-spotlight-media img{transform:scale(1.015)}
+.case-spotlight-content{padding:clamp(26px,3.5vw,48px)}
+.case-spotlight-kicker{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--a);margin-bottom:16px}
+.case-spotlight-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:22px}
+.case-spotlight-head h3{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,72px);font-weight:600;line-height:1.05;letter-spacing:.015em;color:var(--t)}
+.case-spotlight-link{font-size:13px;font-weight:600;color:var(--a);white-space:nowrap;border-bottom:1px solid currentColor;padding-bottom:3px}
+.case-spotlight-copy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px)}
+.case-spotlight-copy p{font-size:clamp(15px,1.45vw,18px);line-height:1.7;color:var(--t2);margin:0}
+@media(max-width:760px){.case-spotlight-content{padding:26px 22px 30px}.case-spotlight-head{align-items:flex-start;flex-direction:column;gap:12px}.case-spotlight-copy{grid-template-columns:1fr;gap:16px}.case-spotlight-copy p{font-size:15px}.case-spotlight:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.case-spotlight,.case-spotlight-media img{transition:none}.case-spotlight:hover,.case-spotlight:hover .case-spotlight-media img{transform:none}}
+
 /* PRIBYLYATOR CTA */
 #pribylyator{background:var(--bg1);padding:0 0 clamp(72px,8vw,120px)}
 .pb-in{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
@@ -1022,13 +1039,17 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 <div class="case-grid">
 
-<div class="case-soon fi">
-<img src="img/case-planerki.webp" alt="" loading="lazy" decoding="async">
-<div class="case-soon-t">
-<h3>Скоро</h3>
-<p>Готовлю новую систему, которая воплотит весь мой предпринимательский, дизайн и ИИ-опыт</p>
+<a class="case-spotlight fi" href="https://delovoice.ru/" target="_blank" rel="noopener noreferrer" aria-label="DeloVoice — открыть сайт проекта">
+<div class="case-spotlight-media"><img src="img/case-delovoice.webp" width="1200" height="675" alt="DeloVoice — иллюстрация системы с микрофонами на фоне морского пейзажа" loading="lazy" decoding="async"></div>
+<div class="case-spotlight-content">
+<div class="case-spotlight-kicker">Новая разработка · Искусственный интеллект для бизнеса</div>
+<div class="case-spotlight-head"><h3>DeloVoice</h3><span class="case-spotlight-link">Перейти на delovoice.ru ↗</span></div>
+<div class="case-spotlight-copy">
+<p>Твой приватный помощник на встречах. Искусственный интеллект расшифрует разговор, выделит задачи, договорённости, ответственных и сроки. Всё безопасно собирается и хранится в едином рабочем кабинете.</p>
+<p>Главное отличие Деловойс от обычных ИИ-диктофонов — память о предыдущих встречах. Система связывает обсуждения, отслеживает поручения, выявляет повторяющиеся проблемы и помогает руководителю видеть, что происходит в компании, какие решения приняты и что осталось невыполненным.</p>
 </div>
 </div>
+</a>
 
 <div class="case-card fi d1">
 <div class="case-img"><img src="img/case-bubnovsky.webp" alt="Центр доктора Бубновского — система управленческой аналитики" loading="lazy" decoding="async"></div>
