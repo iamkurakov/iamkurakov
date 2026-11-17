@@ -475,13 +475,15 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 .case-spotlight:focus-visible{outline:3px solid var(--a);outline-offset:4px}
 .case-spotlight-media{
   display:flex;align-items:center;justify-content:center;
-  width:100%;height:clamp(155px,31svh,330px);
-  padding:clamp(8px,1.4vw,18px);
+  width:100%;height:auto;padding:0;
   overflow:hidden;background:transparent;
 }
 .case-spotlight-media img{
-  display:block;width:auto;height:auto;max-width:100%;max-height:100%;
-  object-fit:contain;object-position:center;flex-shrink:1;
+  display:block;width:100%;height:auto;
+  /* Keep the entire 16:9 image visible, up to the panel width.
+     On shorter desktop viewports reserve room for the text. */
+  max-width:min(100%,calc((100svh - 245px)*1.77778));
+  max-height:none;object-fit:contain;object-position:center;
 }
 .case-spotlight-content{
   display:flex;flex-direction:column;min-width:0;
@@ -510,8 +512,8 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
 }
 .case-spotlight-copy p{font-size:clamp(13px,1.05vw,16px);line-height:1.53;color:var(--t2);margin:0}
 @media(max-width:900px){
-  .case-spotlight-media{height:auto;aspect-ratio:16/9;padding:10px}
-  .case-spotlight-media img{max-width:100%;max-height:100%}
+  .case-spotlight-media{height:auto;padding:0}
+  .case-spotlight-media img{width:100%;max-width:100%;height:auto}
   .case-spotlight-content{padding:24px 22px 30px}
   .case-spotlight-head{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:20px}
   .case-spotlight-head h3{font-size:clamp(25px,5.5vw,38px)}
@@ -519,12 +521,10 @@ nav.on .nav-logo{opacity:1;pointer-events:auto}
   .case-spotlight-copy p{font-size:15px;line-height:1.6}
 }
 @media(max-width:560px){
-  .case-spotlight-media{padding:7px}
   .case-spotlight-content{padding:22px 20px 26px}
   .case-spotlight-head h3{font-size:clamp(24px,7.2vw,34px);line-height:1.16}
 }
 @media(max-height:650px) and (min-width:901px){
-  .case-spotlight-media{height:clamp(115px,27svh,185px);padding:8px}
   .case-spotlight-content{padding:12px 24px 16px}
   .case-spotlight-kicker{margin-bottom:6px}
   .case-spotlight-head{margin-bottom:10px}
