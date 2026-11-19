@@ -776,6 +776,43 @@ a.foot-cell:hover{border-color:var(--a);transform:translateY(-4px);background:va
 }
 
 
+
+/* COURSE INCLUDES — five-part programme summary */
+#course-includes{background:var(--bg1);border-top:1px solid var(--br);padding:clamp(68px,7vw,104px) 0}
+#course-includes .wrap{max-width:1320px}
+.course-includes-layout{display:grid;grid-template-columns:minmax(230px,.76fr) minmax(0,1.54fr);align-items:start;gap:clamp(38px,5vw,84px)}
+.course-includes-intro .label{display:block;margin-bottom:17px}
+.course-includes-intro h2{font-size:clamp(39px,4.7vw,66px);line-height:1.02}
+.course-includes-intro .lead{margin-top:23px;max-width:380px;font-size:clamp(15px,1.3vw,17px);line-height:1.7}
+.course-package{width:100%;border:1px solid var(--br2);border-spacing:0;border-collapse:separate;table-layout:fixed;border-radius:var(--r);background:var(--bg2);overflow:hidden}
+.course-package th,.course-package td{padding:24px 26px;text-align:left;vertical-align:top}
+.course-package tr:not(:last-child)>*{border-bottom:1px solid var(--br2)}
+.course-package th{width:52%;font-weight:400}
+.course-package td{width:48%;color:var(--t2);font-size:14px;line-height:1.65}
+.course-package-head{display:flex;align-items:baseline;gap:16px}
+.course-package-num{flex:0 0 23px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.1em;font-weight:600;color:var(--a)}
+.course-package-heading{display:block;color:var(--t);font-family:'Jost',sans-serif;font-size:clamp(16px,1.5vw,19px);font-weight:500;line-height:1.4}
+.course-package-bonus{display:block;margin-top:7px;color:var(--al);font-size:13px;line-height:1.5;font-weight:400}
+@media(max-width:1000px){
+  .course-includes-layout{grid-template-columns:1fr;gap:30px}
+  .course-includes-intro .lead{max-width:680px}
+}
+@media(max-width:600px){
+  #course-includes{padding:60px 0 72px}
+  .course-includes-intro h2{font-size:clamp(36px,9vw,49px)}
+  .course-includes-intro .lead{margin-top:14px}
+  .course-package{display:block}
+  .course-package tbody{display:block}
+  .course-package tr{display:block;padding:19px 18px}
+  .course-package th,.course-package td{display:block;width:100%;padding:0;border:0!important}
+  .course-package tr:not(:last-child){border-bottom:1px solid var(--br2)}
+  .course-package-head{gap:12px}
+  .course-package-num{flex-basis:23px}
+  .course-package-heading{font-size:17px}
+  .course-package-bonus{font-size:12px;margin-top:4px}
+  .course-package td{padding:9px 0 0 35px;font-size:14px}
+}
+
 /* Referral program: isolated styling using existing typography and colors. */
 #referral-program{background:var(--bg2);position:relative;overflow:hidden;border-top:1px solid var(--br);border-bottom:1px solid var(--br)}
 #referral-program::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 100% 0%,rgba(201,127,58,.12),transparent 62%);pointer-events:none}
@@ -1068,6 +1105,43 @@ body{-webkit-tap-highlight-color:rgba(201,127,58,.18)}
 </div>
 </section>
 
+
+
+<section id="course-includes" data-screen-label="Состав курса" aria-labelledby="course-includes-title">
+<div class="wrap">
+<div class="course-includes-layout">
+<div class="course-includes-intro fi">
+<span class="label">Корпоративное обучение</span>
+<h2 id="course-includes-title">Что входит<br>в курс</h2>
+<p class="lead">Не только занятия: команда получает рабочее решение, поддержку и материалы для дальнейшей работы.</p>
+</div>
+<table class="course-package fi d1" aria-label="Что входит в корпоративный курс">
+<tbody>
+<tr>
+<th scope="row"><div class="course-package-head"><span class="course-package-num">01</span><span><span class="course-package-heading">5 практических занятий</span><span class="course-package-bonus">(6-е — бонусное занятие с командой)</span></span></div></th>
+<td>За месяц проходим путь от выбора задачи до реализации решения силами вашей команды.</td>
+</tr>
+<tr>
+<th scope="row"><div class="course-package-head"><span class="course-package-num">02</span><span class="course-package-heading">Автоматизированная задача</span></div></th>
+<td>Один реальный рабочий процесс компании, который автоматизируем в ходе курса.</td>
+</tr>
+<tr>
+<th scope="row"><div class="course-package-head"><span class="course-package-num">03</span><span class="course-package-heading">Моя поддержка в течение 60 дней</span></div></th>
+<td>Ответы на вопросы команды по пройденному материалу и созданному решению.</td>
+</tr>
+<tr>
+<th scope="row"><div class="course-package-head"><span class="course-package-num">04</span><span class="course-package-heading">Все исходные материалы курса</span></div></th>
+<td>Презентации, инструкции, примеры и рабочие файлы, которые использовали на занятиях.</td>
+</tr>
+<tr>
+<th scope="row"><div class="course-package-head"><span class="course-package-num">05</span><span class="course-package-heading">Каталог полезных ссылок</span></div></th>
+<td>Подборка ИИ-сервисов, инструментов и источников для самостоятельной работы.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 
 <section id="referral-program" data-screen-label="Партнёрская программа" aria-label="Реферальная программа курса">
 <div class="wrap"><div class="referral-layout">
